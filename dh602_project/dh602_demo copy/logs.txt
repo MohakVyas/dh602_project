@@ -1,0 +1,800 @@
+Actor(
+  (enc): EncoderCNN(
+    (swin_model): SwinModel(
+      (patch_embedding): PatchEmbedding(
+        (proj): Conv2d(1, 64, kernel_size=(2, 2), stride=(2, 2))
+      )
+      (swin_transformer1): SwinTransformer(
+        (norm1): LayerNormalization((64,), eps=1e-05, elementwise_affine=True)
+        (attn): WindowAttention(
+          (qkv): Linear(in_features=64, out_features=192, bias=True)
+          (dropout): Dropout(p=0.0, inplace=False)
+          (proj): Linear(in_features=64, out_features=64, bias=True)
+        )
+        (drop_path): Dropout(p=0.0, inplace=False)
+        (norm2): LayerNormalization((64,), eps=1e-05, elementwise_affine=True)
+        (mlp): Sequential(
+          (0): Linear(in_features=64, out_features=128, bias=True)
+          (1): GELU(approximate='none')
+          (2): Dropout(p=0.0, inplace=False)
+          (3): Linear(in_features=128, out_features=64, bias=True)
+          (4): Dropout(p=0.0, inplace=False)
+        )
+      )
+      (swin_transformer2): SwinTransformer(
+        (norm1): LayerNormalization((64,), eps=1e-05, elementwise_affine=True)
+        (attn): WindowAttention(
+          (qkv): Linear(in_features=64, out_features=192, bias=True)
+          (dropout): Dropout(p=0.0, inplace=False)
+          (proj): Linear(in_features=64, out_features=64, bias=True)
+        )
+        (drop_path): Dropout(p=0.0, inplace=False)
+        (norm2): LayerNormalization((64,), eps=1e-05, elementwise_affine=True)
+        (mlp): Sequential(
+          (0): Linear(in_features=64, out_features=128, bias=True)
+          (1): GELU(approximate='none')
+          (2): Dropout(p=0.0, inplace=False)
+          (3): Linear(in_features=128, out_features=64, bias=True)
+          (4): Dropout(p=0.0, inplace=False)
+        )
+      )
+      (patch_merging): PatchMerging(
+        (linear_trans): Linear(in_features=256, out_features=128, bias=False)
+      )
+      (global_avg_pooling): AdaptiveAvgPool1d(output_size=1)
+      (fc): Linear(in_features=64, out_features=256, bias=True)
+    )
+    (linear): Linear(in_features=64, out_features=256, bias=True)
+    (norm1): LayerNorm((256,), eps=1e-05, elementwise_affine=True)
+  )
+  (enc_out): Linear(in_features=256, out_features=256, bias=True)
+  (lookup_table): Embedding(1544, 256, padding_idx=0)
+  (rnn): LayerNormLSTM(
+    (hidden0): ModuleList(
+      (0): LayerNormLSTMCell(
+        512, 256
+        (ln_ih): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+        (ln_hh): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+        (ln_ho): LayerNorm((256,), eps=1e-05, elementwise_affine=True)
+      )
+    )
+  )
+  (out): Linear(in_features=256, out_features=1544, bias=True)
+)
+image ['./1_IM-0001-3001.png']
+predicted: [['<start>', 'the', 'heart', 'is', 'normal', 'in', 'size', 'and', 'contour']]
+ground truth: [['<start>', 'the', 'cardiac', 'silhouette', 'and', 'mediastinum', 'size', 'are', 'within', 'normal', 'limits']]
+
+Actor(
+  (enc): EncoderCNN(
+    (swin_model): SwinModel(
+      (patch_embedding): PatchEmbedding(
+        (proj): Conv2d(1, 64, kernel_size=(2, 2), stride=(2, 2))
+      )
+      (swin_transformer1): SwinTransformer(
+        (norm1): LayerNormalization((64,), eps=1e-05, elementwise_affine=True)
+        (attn): WindowAttention(
+          (qkv): Linear(in_features=64, out_features=192, bias=True)
+          (dropout): Dropout(p=0.0, inplace=False)
+          (proj): Linear(in_features=64, out_features=64, bias=True)
+        )
+        (drop_path): Dropout(p=0.0, inplace=False)
+        (norm2): LayerNormalization((64,), eps=1e-05, elementwise_affine=True)
+        (mlp): Sequential(
+          (0): Linear(in_features=64, out_features=128, bias=True)
+          (1): GELU(approximate='none')
+          (2): Dropout(p=0.0, inplace=False)
+          (3): Linear(in_features=128, out_features=64, bias=True)
+          (4): Dropout(p=0.0, inplace=False)
+        )
+      )
+      (swin_transformer2): SwinTransformer(
+        (norm1): LayerNormalization((64,), eps=1e-05, elementwise_affine=True)
+        (attn): WindowAttention(
+          (qkv): Linear(in_features=64, out_features=192, bias=True)
+          (dropout): Dropout(p=0.0, inplace=False)
+          (proj): Linear(in_features=64, out_features=64, bias=True)
+        )
+        (drop_path): Dropout(p=0.0, inplace=False)
+        (norm2): LayerNormalization((64,), eps=1e-05, elementwise_affine=True)
+        (mlp): Sequential(
+          (0): Linear(in_features=64, out_features=128, bias=True)
+          (1): GELU(approximate='none')
+          (2): Dropout(p=0.0, inplace=False)
+          (3): Linear(in_features=128, out_features=64, bias=True)
+          (4): Dropout(p=0.0, inplace=False)
+        )
+      )
+      (patch_merging): PatchMerging(
+        (linear_trans): Linear(in_features=256, out_features=128, bias=False)
+      )
+      (global_avg_pooling): AdaptiveAvgPool1d(output_size=1)
+      (fc): Linear(in_features=64, out_features=256, bias=True)
+    )
+    (linear): Linear(in_features=64, out_features=256, bias=True)
+    (norm1): LayerNorm((256,), eps=1e-05, elementwise_affine=True)
+  )
+  (enc_out): Linear(in_features=256, out_features=256, bias=True)
+  (lookup_table): Embedding(1544, 256, padding_idx=0)
+  (rnn): LayerNormLSTM(
+    (hidden0): ModuleList(
+      (0): LayerNormLSTMCell(
+        512, 256
+        (ln_ih): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+        (ln_hh): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+        (ln_ho): LayerNorm((256,), eps=1e-05, elementwise_affine=True)
+      )
+    )
+  )
+  (out): Linear(in_features=256, out_features=1544, bias=True)
+)
+image ['./1_IM-0001-3001.png']
+predicted: [['<start>', 'the', 'lungs']]
+ground truth: [['<start>', 'the', 'cardiac', 'silhouette', 'and', 'mediastinum', 'size', 'are', 'within', 'normal', 'limits']]
+
+
+Actor(
+  (enc): EncoderCNN(
+    (swin_model): SwinModel(
+      (patch_embedding): PatchEmbedding(
+        (proj): Conv2d(1, 64, kernel_size=(2, 2), stride=(2, 2))
+      )
+      (swin_transformer1): SwinTransformer(
+        (norm1): LayerNormalization((64,), eps=1e-05, elementwise_affine=True)
+        (attn): WindowAttention(
+          (qkv): Linear(in_features=64, out_features=192, bias=True)
+          (dropout): Dropout(p=0.0, inplace=False)
+          (proj): Linear(in_features=64, out_features=64, bias=True)
+        )
+        (drop_path): Dropout(p=0.0, inplace=False)
+        (norm2): LayerNormalization((64,), eps=1e-05, elementwise_affine=True)
+        (mlp): Sequential(
+          (0): Linear(in_features=64, out_features=128, bias=True)
+          (1): GELU(approximate='none')
+          (2): Dropout(p=0.0, inplace=False)
+          (3): Linear(in_features=128, out_features=64, bias=True)
+          (4): Dropout(p=0.0, inplace=False)
+        )
+      )
+      (swin_transformer2): SwinTransformer(
+        (norm1): LayerNormalization((64,), eps=1e-05, elementwise_affine=True)
+        (attn): WindowAttention(
+          (qkv): Linear(in_features=64, out_features=192, bias=True)
+          (dropout): Dropout(p=0.0, inplace=False)
+          (proj): Linear(in_features=64, out_features=64, bias=True)
+        )
+        (drop_path): Dropout(p=0.0, inplace=False)
+        (norm2): LayerNormalization((64,), eps=1e-05, elementwise_affine=True)
+        (mlp): Sequential(
+          (0): Linear(in_features=64, out_features=128, bias=True)
+          (1): GELU(approximate='none')
+          (2): Dropout(p=0.0, inplace=False)
+          (3): Linear(in_features=128, out_features=64, bias=True)
+          (4): Dropout(p=0.0, inplace=False)
+        )
+      )
+      (patch_merging): PatchMerging(
+        (linear_trans): Linear(in_features=256, out_features=128, bias=False)
+      )
+      (global_avg_pooling): AdaptiveAvgPool1d(output_size=1)
+      (fc): Linear(in_features=64, out_features=256, bias=True)
+    )
+    (linear): Linear(in_features=64, out_features=256, bias=True)
+    (norm1): LayerNorm((256,), eps=1e-05, elementwise_affine=True)
+  )
+  (enc_out): Linear(in_features=256, out_features=256, bias=True)
+  (lookup_table): Embedding(1544, 256, padding_idx=0)
+  (rnn): LayerNormLSTM(
+    (hidden0): ModuleList(
+      (0): LayerNormLSTMCell(
+        512, 256
+        (ln_ih): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+        (ln_hh): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+        (ln_ho): LayerNorm((256,), eps=1e-05, elementwise_affine=True)
+      )
+    )
+  )
+  (out): Linear(in_features=256, out_features=1544, bias=True)
+)
+image ['./1_IM-0001-3001.png']
+predicted: [['<start>', 'the', 'heart']]
+ground truth: [['<start>', 'the', 'cardiac', 'silhouette', 'and', 'mediastinum', 'size', 'are', 'within', 'normal', 'limits']]
+
+Actor(
+  (enc): EncoderCNN(
+    (swin_model): SwinModel(
+      (patch_embedding): PatchEmbedding(
+        (proj): Conv2d(1, 64, kernel_size=(2, 2), stride=(2, 2))
+      )
+      (swin_transformer1): SwinTransformer(
+        (norm1): LayerNormalization((64,), eps=1e-05, elementwise_affine=True)
+        (attn): WindowAttention(
+          (qkv): Linear(in_features=64, out_features=192, bias=True)
+          (dropout): Dropout(p=0.0, inplace=False)
+          (proj): Linear(in_features=64, out_features=64, bias=True)
+        )
+        (drop_path): Dropout(p=0.0, inplace=False)
+        (norm2): LayerNormalization((64,), eps=1e-05, elementwise_affine=True)
+        (mlp): Sequential(
+          (0): Linear(in_features=64, out_features=128, bias=True)
+          (1): GELU(approximate='none')
+          (2): Dropout(p=0.0, inplace=False)
+          (3): Linear(in_features=128, out_features=64, bias=True)
+          (4): Dropout(p=0.0, inplace=False)
+        )
+      )
+      (swin_transformer2): SwinTransformer(
+        (norm1): LayerNormalization((64,), eps=1e-05, elementwise_affine=True)
+        (attn): WindowAttention(
+          (qkv): Linear(in_features=64, out_features=192, bias=True)
+          (dropout): Dropout(p=0.0, inplace=False)
+          (proj): Linear(in_features=64, out_features=64, bias=True)
+        )
+        (drop_path): Dropout(p=0.0, inplace=False)
+        (norm2): LayerNormalization((64,), eps=1e-05, elementwise_affine=True)
+        (mlp): Sequential(
+          (0): Linear(in_features=64, out_features=128, bias=True)
+          (1): GELU(approximate='none')
+          (2): Dropout(p=0.0, inplace=False)
+          (3): Linear(in_features=128, out_features=64, bias=True)
+          (4): Dropout(p=0.0, inplace=False)
+        )
+      )
+      (patch_merging): PatchMerging(
+        (linear_trans): Linear(in_features=256, out_features=128, bias=False)
+      )
+      (global_avg_pooling): AdaptiveAvgPool1d(output_size=1)
+      (fc): Linear(in_features=64, out_features=256, bias=True)
+    )
+    (linear): Linear(in_features=64, out_features=256, bias=True)
+    (norm1): LayerNorm((256,), eps=1e-05, elementwise_affine=True)
+  )
+  (enc_out): Linear(in_features=256, out_features=256, bias=True)
+  (lookup_table): Embedding(1544, 256, padding_idx=0)
+  (caption_model): ImageCaptioningModel(
+    (cnn_model): SwinModel(
+      (patch_embedding): PatchEmbedding(
+        (proj): Conv2d(1, 64, kernel_size=(2, 2), stride=(2, 2))
+      )
+      (swin_transformer1): SwinTransformer(
+        (norm1): LayerNormalization((64,), eps=1e-05, elementwise_affine=True)
+        (attn): WindowAttention(
+          (qkv): Linear(in_features=64, out_features=192, bias=True)
+          (dropout): Dropout(p=0.0, inplace=False)
+          (proj): Linear(in_features=64, out_features=64, bias=True)
+        )
+        (drop_path): Dropout(p=0.0, inplace=False)
+        (norm2): LayerNormalization((64,), eps=1e-05, elementwise_affine=True)
+        (mlp): Sequential(
+          (0): Linear(in_features=64, out_features=128, bias=True)
+          (1): GELU(approximate='none')
+          (2): Dropout(p=0.0, inplace=False)
+          (3): Linear(in_features=128, out_features=64, bias=True)
+          (4): Dropout(p=0.0, inplace=False)
+        )
+      )
+      (swin_transformer2): SwinTransformer(
+        (norm1): LayerNormalization((64,), eps=1e-05, elementwise_affine=True)
+        (attn): WindowAttention(
+          (qkv): Linear(in_features=64, out_features=192, bias=True)
+          (dropout): Dropout(p=0.0, inplace=False)
+          (proj): Linear(in_features=64, out_features=64, bias=True)
+        )
+        (drop_path): Dropout(p=0.0, inplace=False)
+        (norm2): LayerNormalization((64,), eps=1e-05, elementwise_affine=True)
+        (mlp): Sequential(
+          (0): Linear(in_features=64, out_features=128, bias=True)
+          (1): GELU(approximate='none')
+          (2): Dropout(p=0.0, inplace=False)
+          (3): Linear(in_features=128, out_features=64, bias=True)
+          (4): Dropout(p=0.0, inplace=False)
+        )
+      )
+      (patch_merging): PatchMerging(
+        (linear_trans): Linear(in_features=256, out_features=128, bias=False)
+      )
+      (global_avg_pooling): AdaptiveAvgPool1d(output_size=1)
+      (fc): Linear(in_features=64, out_features=256, bias=True)
+    )
+    (encoder): TransformerEncoderBlock(
+      (attention): MultiheadAttention(
+        (out_proj): NonDynamicallyQuantizableLinear(in_features=8, out_features=8, bias=True)
+      )
+      (dense_proj): Linear(in_features=256, out_features=8, bias=True)
+      (layernorm_1): LayerNorm((8,), eps=1e-05, elementwise_affine=True)
+    )
+    (decoder): TransformerDecoderBlock(
+      (attention_1): MultiheadAttention(
+        (out_proj): NonDynamicallyQuantizableLinear(in_features=8, out_features=8, bias=True)
+      )
+      (attention_2): MultiheadAttention(
+        (out_proj): NonDynamicallyQuantizableLinear(in_features=8, out_features=8, bias=True)
+      )
+      (dense_proj): Sequential(
+        (0): Linear(in_features=8, out_features=16, bias=True)
+        (1): ReLU()
+        (2): Linear(in_features=16, out_features=8, bias=True)
+      )
+      (layernorm_1): LayerNorm((8,), eps=1e-05, elementwise_affine=True)
+      (layernorm_2): LayerNorm((8,), eps=1e-05, elementwise_affine=True)
+      (layernorm_3): LayerNorm((8,), eps=1e-05, elementwise_affine=True)
+      (embedding): PositionalEmbedding(
+        (token_embeddings): Embedding(1544, 8)
+        (position_embeddings): Embedding(60, 8)
+      )
+      (out): Linear(in_features=8, out_features=1544, bias=True)
+      (dropout_1): Dropout(p=0.1, inplace=False)
+      (dropout_2): Dropout(p=0.5, inplace=False)
+    )
+    (loss): CrossEntropyLoss()
+  )
+  (out): Linear(in_features=256, out_features=1544, bias=True)
+)
+image ['./1_IM-0001-3001.png']
+predicted: [['<start>', 'the', 'the', 'noted', 'pulmonary', 'cardiac', 'is', 'are', 'heart', 'within', 'the']]
+ground truth: [['<start>', 'the', 'cardiac', 'silhouette', 'and', 'mediastinum', 'size', 'are', 'within', 'normal', 'limits']]
+
+Actor(
+  (enc): EncoderCNN(
+    (swin_model): SwinModel(
+      (patch_embedding): PatchEmbedding(
+        (proj): Conv2d(1, 64, kernel_size=(2, 2), stride=(2, 2))
+      )
+      (swin_transformer1): SwinTransformer(
+        (norm1): LayerNormalization((64,), eps=1e-05, elementwise_affine=True)
+        (attn): WindowAttention(
+          (qkv): Linear(in_features=64, out_features=192, bias=True)
+          (dropout): Dropout(p=0.0, inplace=False)
+          (proj): Linear(in_features=64, out_features=64, bias=True)
+        )
+        (drop_path): Dropout(p=0.0, inplace=False)
+        (norm2): LayerNormalization((64,), eps=1e-05, elementwise_affine=True)
+        (mlp): Sequential(
+          (0): Linear(in_features=64, out_features=128, bias=True)
+          (1): GELU(approximate='none')
+          (2): Dropout(p=0.0, inplace=False)
+          (3): Linear(in_features=128, out_features=64, bias=True)
+          (4): Dropout(p=0.0, inplace=False)
+        )
+      )
+      (swin_transformer2): SwinTransformer(
+        (norm1): LayerNormalization((64,), eps=1e-05, elementwise_affine=True)
+        (attn): WindowAttention(
+          (qkv): Linear(in_features=64, out_features=192, bias=True)
+          (dropout): Dropout(p=0.0, inplace=False)
+          (proj): Linear(in_features=64, out_features=64, bias=True)
+        )
+        (drop_path): Dropout(p=0.0, inplace=False)
+        (norm2): LayerNormalization((64,), eps=1e-05, elementwise_affine=True)
+        (mlp): Sequential(
+          (0): Linear(in_features=64, out_features=128, bias=True)
+          (1): GELU(approximate='none')
+          (2): Dropout(p=0.0, inplace=False)
+          (3): Linear(in_features=128, out_features=64, bias=True)
+          (4): Dropout(p=0.0, inplace=False)
+        )
+      )
+      (patch_merging): PatchMerging(
+        (linear_trans): Linear(in_features=256, out_features=128, bias=False)
+      )
+      (global_avg_pooling): AdaptiveAvgPool1d(output_size=1)
+      (fc): Linear(in_features=64, out_features=256, bias=True)
+    )
+    (linear): Linear(in_features=64, out_features=256, bias=True)
+    (norm1): LayerNorm((256,), eps=1e-05, elementwise_affine=True)
+  )
+  (enc_out): Linear(in_features=256, out_features=256, bias=True)
+  (lookup_table): Embedding(1544, 256, padding_idx=0)
+  (caption_model): ImageCaptioningModel(
+    (cnn_model): SwinModel(
+      (patch_embedding): PatchEmbedding(
+        (proj): Conv2d(1, 64, kernel_size=(2, 2), stride=(2, 2))
+      )
+      (swin_transformer1): SwinTransformer(
+        (norm1): LayerNormalization((64,), eps=1e-05, elementwise_affine=True)
+        (attn): WindowAttention(
+          (qkv): Linear(in_features=64, out_features=192, bias=True)
+          (dropout): Dropout(p=0.0, inplace=False)
+          (proj): Linear(in_features=64, out_features=64, bias=True)
+        )
+        (drop_path): Dropout(p=0.0, inplace=False)
+        (norm2): LayerNormalization((64,), eps=1e-05, elementwise_affine=True)
+        (mlp): Sequential(
+          (0): Linear(in_features=64, out_features=128, bias=True)
+          (1): GELU(approximate='none')
+          (2): Dropout(p=0.0, inplace=False)
+          (3): Linear(in_features=128, out_features=64, bias=True)
+          (4): Dropout(p=0.0, inplace=False)
+        )
+      )
+      (swin_transformer2): SwinTransformer(
+        (norm1): LayerNormalization((64,), eps=1e-05, elementwise_affine=True)
+        (attn): WindowAttention(
+          (qkv): Linear(in_features=64, out_features=192, bias=True)
+          (dropout): Dropout(p=0.0, inplace=False)
+          (proj): Linear(in_features=64, out_features=64, bias=True)
+        )
+        (drop_path): Dropout(p=0.0, inplace=False)
+        (norm2): LayerNormalization((64,), eps=1e-05, elementwise_affine=True)
+        (mlp): Sequential(
+          (0): Linear(in_features=64, out_features=128, bias=True)
+          (1): GELU(approximate='none')
+          (2): Dropout(p=0.0, inplace=False)
+          (3): Linear(in_features=128, out_features=64, bias=True)
+          (4): Dropout(p=0.0, inplace=False)
+        )
+      )
+      (patch_merging): PatchMerging(
+        (linear_trans): Linear(in_features=256, out_features=128, bias=False)
+      )
+      (global_avg_pooling): AdaptiveAvgPool1d(output_size=1)
+      (fc): Linear(in_features=64, out_features=256, bias=True)
+    )
+    (encoder): TransformerEncoderBlock(
+      (attention): MultiheadAttention(
+        (out_proj): NonDynamicallyQuantizableLinear(in_features=8, out_features=8, bias=True)
+      )
+      (dense_proj): Linear(in_features=256, out_features=8, bias=True)
+      (layernorm_1): LayerNorm((8,), eps=1e-05, elementwise_affine=True)
+    )
+    (decoder): TransformerDecoderBlock(
+      (attention_1): MultiheadAttention(
+        (out_proj): NonDynamicallyQuantizableLinear(in_features=8, out_features=8, bias=True)
+      )
+      (attention_2): MultiheadAttention(
+        (out_proj): NonDynamicallyQuantizableLinear(in_features=8, out_features=8, bias=True)
+      )
+      (dense_proj): Sequential(
+        (0): Linear(in_features=8, out_features=16, bias=True)
+        (1): ReLU()
+        (2): Linear(in_features=16, out_features=8, bias=True)
+      )
+      (layernorm_1): LayerNorm((8,), eps=1e-05, elementwise_affine=True)
+      (layernorm_2): LayerNorm((8,), eps=1e-05, elementwise_affine=True)
+      (layernorm_3): LayerNorm((8,), eps=1e-05, elementwise_affine=True)
+      (embedding): PositionalEmbedding(
+        (token_embeddings): Embedding(1544, 8)
+        (position_embeddings): Embedding(60, 8)
+      )
+      (out): Linear(in_features=8, out_features=1544, bias=True)
+      (dropout_1): Dropout(p=0.1, inplace=False)
+      (dropout_2): Dropout(p=0.5, inplace=False)
+    )
+    (loss): CrossEntropyLoss()
+  )
+  (out): Linear(in_features=256, out_features=1544, bias=True)
+)
+image ['./1_IM-0001-3001.png']
+predicted: [['<start>', 'the', 'the', 'noted', 'the', 'degenerative', 'size', 'are', 'heart', 'are', 'the']]
+ground truth: [['<start>', 'the', 'cardiac', 'silhouette', 'and', 'mediastinum', 'size', 'are', 'within', 'normal', 'limits']]
+
+Actor(
+  (enc): EncoderCNN(
+    (swin_model): SwinModel(
+      (patch_embedding): PatchEmbedding(
+        (proj): Conv2d(1, 64, kernel_size=(2, 2), stride=(2, 2))
+      )
+      (swin_transformer1): SwinTransformer(
+        (norm1): LayerNormalization((64,), eps=1e-05, elementwise_affine=True)
+        (attn): WindowAttention(
+          (qkv): Linear(in_features=64, out_features=192, bias=True)
+          (dropout): Dropout(p=0.0, inplace=False)
+          (proj): Linear(in_features=64, out_features=64, bias=True)
+        )
+        (drop_path): Dropout(p=0.0, inplace=False)
+        (norm2): LayerNormalization((64,), eps=1e-05, elementwise_affine=True)
+        (mlp): Sequential(
+          (0): Linear(in_features=64, out_features=128, bias=True)
+          (1): GELU(approximate='none')
+          (2): Dropout(p=0.0, inplace=False)
+          (3): Linear(in_features=128, out_features=64, bias=True)
+          (4): Dropout(p=0.0, inplace=False)
+        )
+      )
+      (swin_transformer2): SwinTransformer(
+        (norm1): LayerNormalization((64,), eps=1e-05, elementwise_affine=True)
+        (attn): WindowAttention(
+          (qkv): Linear(in_features=64, out_features=192, bias=True)
+          (dropout): Dropout(p=0.0, inplace=False)
+          (proj): Linear(in_features=64, out_features=64, bias=True)
+        )
+        (drop_path): Dropout(p=0.0, inplace=False)
+        (norm2): LayerNormalization((64,), eps=1e-05, elementwise_affine=True)
+        (mlp): Sequential(
+          (0): Linear(in_features=64, out_features=128, bias=True)
+          (1): GELU(approximate='none')
+          (2): Dropout(p=0.0, inplace=False)
+          (3): Linear(in_features=128, out_features=64, bias=True)
+          (4): Dropout(p=0.0, inplace=False)
+        )
+      )
+      (patch_merging): PatchMerging(
+        (linear_trans): Linear(in_features=256, out_features=128, bias=False)
+      )
+      (global_avg_pooling): AdaptiveAvgPool1d(output_size=1)
+      (fc): Linear(in_features=64, out_features=256, bias=True)
+    )
+    (linear): Linear(in_features=64, out_features=256, bias=True)
+    (norm1): LayerNorm((256,), eps=1e-05, elementwise_affine=True)
+  )
+  (enc_out): Linear(in_features=256, out_features=256, bias=True)
+  (lookup_table): Embedding(1544, 256, padding_idx=0)
+  (rnn): LayerNormLSTM(
+    (hidden0): ModuleList(
+      (0): LayerNormLSTMCell(
+        512, 256
+        (ln_ih): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+        (ln_hh): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+        (ln_ho): LayerNorm((256,), eps=1e-05, elementwise_affine=True)
+      )
+    )
+  )
+  (out): Linear(in_features=256, out_features=1544, bias=True)
+)
+image ['./7_IM-2263-2001.png']
+predicted: [['<start>', 'the', 'heart', 'is', 'normal', 'in', 'size', 'and', 'contour']]
+ground truth: [['<start>', 'the', 'cardiac', 'contours', 'are', 'normal']]
+Actor(
+  (enc): EncoderCNN(
+    (swin_model): SwinModel(
+      (patch_embedding): PatchEmbedding(
+        (proj): Conv2d(1, 64, kernel_size=(2, 2), stride=(2, 2))
+      )
+      (swin_transformer1): SwinTransformer(
+        (norm1): LayerNormalization((64,), eps=1e-05, elementwise_affine=True)
+        (attn): WindowAttention(
+          (qkv): Linear(in_features=64, out_features=192, bias=True)
+          (dropout): Dropout(p=0.0, inplace=False)
+          (proj): Linear(in_features=64, out_features=64, bias=True)
+        )
+        (drop_path): Dropout(p=0.0, inplace=False)
+        (norm2): LayerNormalization((64,), eps=1e-05, elementwise_affine=True)
+        (mlp): Sequential(
+          (0): Linear(in_features=64, out_features=128, bias=True)
+          (1): GELU(approximate='none')
+          (2): Dropout(p=0.0, inplace=False)
+          (3): Linear(in_features=128, out_features=64, bias=True)
+          (4): Dropout(p=0.0, inplace=False)
+        )
+      )
+      (swin_transformer2): SwinTransformer(
+        (norm1): LayerNormalization((64,), eps=1e-05, elementwise_affine=True)
+        (attn): WindowAttention(
+          (qkv): Linear(in_features=64, out_features=192, bias=True)
+          (dropout): Dropout(p=0.0, inplace=False)
+          (proj): Linear(in_features=64, out_features=64, bias=True)
+        )
+        (drop_path): Dropout(p=0.0, inplace=False)
+        (norm2): LayerNormalization((64,), eps=1e-05, elementwise_affine=True)
+        (mlp): Sequential(
+          (0): Linear(in_features=64, out_features=128, bias=True)
+          (1): GELU(approximate='none')
+          (2): Dropout(p=0.0, inplace=False)
+          (3): Linear(in_features=128, out_features=64, bias=True)
+          (4): Dropout(p=0.0, inplace=False)
+        )
+      )
+      (patch_merging): PatchMerging(
+        (linear_trans): Linear(in_features=256, out_features=128, bias=False)
+      )
+      (global_avg_pooling): AdaptiveAvgPool1d(output_size=1)
+      (fc): Linear(in_features=64, out_features=256, bias=True)
+    )
+    (linear): Linear(in_features=64, out_features=256, bias=True)
+    (norm1): LayerNorm((256,), eps=1e-05, elementwise_affine=True)
+  )
+  (enc_out): Linear(in_features=256, out_features=256, bias=True)
+  (lookup_table): Embedding(1544, 256, padding_idx=0)
+  (rnn): LayerNormLSTM(
+    (hidden0): ModuleList(
+      (0): LayerNormLSTMCell(
+        512, 256
+        (ln_ih): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+        (ln_hh): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+        (ln_ho): LayerNorm((256,), eps=1e-05, elementwise_affine=True)
+      )
+    )
+  )
+  (out): Linear(in_features=256, out_features=1544, bias=True)
+)
+image ['./63_IM-2210-0001-0001.png']
+predicted: [['<start>', 'the', 'heart', 'is', 'normal', 'in', 'size', 'and', 'contour']]
+ground truth: [['<start>', 'stable', 'flattening', 'of', 'the', 'posterior', 'diaphragm', 'and', 'scattered', 'chronic', 'appearing', 'irregular', 'interstitial', 'markings', 'with', 'no', 'focal', 'alveolar', 'consolidation']]
+Actor(
+  (enc): EncoderCNN(
+    (swin_model): SwinModel(
+      (patch_embedding): PatchEmbedding(
+        (proj): Conv2d(1, 64, kernel_size=(2, 2), stride=(2, 2))
+      )
+      (swin_transformer1): SwinTransformer(
+        (norm1): LayerNormalization((64,), eps=1e-05, elementwise_affine=True)
+        (attn): WindowAttention(
+          (qkv): Linear(in_features=64, out_features=192, bias=True)
+          (dropout): Dropout(p=0.0, inplace=False)
+          (proj): Linear(in_features=64, out_features=64, bias=True)
+        )
+        (drop_path): Dropout(p=0.0, inplace=False)
+        (norm2): LayerNormalization((64,), eps=1e-05, elementwise_affine=True)
+        (mlp): Sequential(
+          (0): Linear(in_features=64, out_features=128, bias=True)
+          (1): GELU(approximate='none')
+          (2): Dropout(p=0.0, inplace=False)
+          (3): Linear(in_features=128, out_features=64, bias=True)
+          (4): Dropout(p=0.0, inplace=False)
+        )
+      )
+      (swin_transformer2): SwinTransformer(
+        (norm1): LayerNormalization((64,), eps=1e-05, elementwise_affine=True)
+        (attn): WindowAttention(
+          (qkv): Linear(in_features=64, out_features=192, bias=True)
+          (dropout): Dropout(p=0.0, inplace=False)
+          (proj): Linear(in_features=64, out_features=64, bias=True)
+        )
+        (drop_path): Dropout(p=0.0, inplace=False)
+        (norm2): LayerNormalization((64,), eps=1e-05, elementwise_affine=True)
+        (mlp): Sequential(
+          (0): Linear(in_features=64, out_features=128, bias=True)
+          (1): GELU(approximate='none')
+          (2): Dropout(p=0.0, inplace=False)
+          (3): Linear(in_features=128, out_features=64, bias=True)
+          (4): Dropout(p=0.0, inplace=False)
+        )
+      )
+      (patch_merging): PatchMerging(
+        (linear_trans): Linear(in_features=256, out_features=128, bias=False)
+      )
+      (global_avg_pooling): AdaptiveAvgPool1d(output_size=1)
+      (fc): Linear(in_features=64, out_features=256, bias=True)
+    )
+    (linear): Linear(in_features=64, out_features=256, bias=True)
+    (norm1): LayerNorm((256,), eps=1e-05, elementwise_affine=True)
+  )
+  (enc_out): Linear(in_features=256, out_features=256, bias=True)
+  (lookup_table): Embedding(1544, 256, padding_idx=0)
+  (rnn): LayerNormLSTM(
+    (hidden0): ModuleList(
+      (0): LayerNormLSTMCell(
+        512, 256
+        (ln_ih): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+        (ln_hh): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+        (ln_ho): LayerNorm((256,), eps=1e-05, elementwise_affine=True)
+      )
+    )
+  )
+  (out): Linear(in_features=256, out_features=1544, bias=True)
+)
+image ['./4_IM-2050-2001.png']
+predicted: [['<start>', 'the', 'heart', 'is', 'normal', 'in', 'size', 'and', 'contour']]
+ground truth: [['<start>', 'there', 'are', 'diffuse', 'bilateral', 'interstitial', 'and', 'alveolar', 'opacities', 'consistent', 'with', 'chronic', 'obstructive', 'lung', 'disease', 'and', 'bullous', 'emphysema']]
+Actor(
+  (enc): EncoderCNN(
+    (swin_model): SwinModel(
+      (patch_embedding): PatchEmbedding(
+        (proj): Conv2d(1, 64, kernel_size=(2, 2), stride=(2, 2))
+      )
+      (swin_transformer1): SwinTransformer(
+        (norm1): LayerNormalization((64,), eps=1e-05, elementwise_affine=True)
+        (attn): WindowAttention(
+          (qkv): Linear(in_features=64, out_features=192, bias=True)
+          (dropout): Dropout(p=0.0, inplace=False)
+          (proj): Linear(in_features=64, out_features=64, bias=True)
+        )
+        (drop_path): Dropout(p=0.0, inplace=False)
+        (norm2): LayerNormalization((64,), eps=1e-05, elementwise_affine=True)
+        (mlp): Sequential(
+          (0): Linear(in_features=64, out_features=128, bias=True)
+          (1): GELU(approximate='none')
+          (2): Dropout(p=0.0, inplace=False)
+          (3): Linear(in_features=128, out_features=64, bias=True)
+          (4): Dropout(p=0.0, inplace=False)
+        )
+      )
+      (swin_transformer2): SwinTransformer(
+        (norm1): LayerNormalization((64,), eps=1e-05, elementwise_affine=True)
+        (attn): WindowAttention(
+          (qkv): Linear(in_features=64, out_features=192, bias=True)
+          (dropout): Dropout(p=0.0, inplace=False)
+          (proj): Linear(in_features=64, out_features=64, bias=True)
+        )
+        (drop_path): Dropout(p=0.0, inplace=False)
+        (norm2): LayerNormalization((64,), eps=1e-05, elementwise_affine=True)
+        (mlp): Sequential(
+          (0): Linear(in_features=64, out_features=128, bias=True)
+          (1): GELU(approximate='none')
+          (2): Dropout(p=0.0, inplace=False)
+          (3): Linear(in_features=128, out_features=64, bias=True)
+          (4): Dropout(p=0.0, inplace=False)
+        )
+      )
+      (patch_merging): PatchMerging(
+        (linear_trans): Linear(in_features=256, out_features=128, bias=False)
+      )
+      (global_avg_pooling): AdaptiveAvgPool1d(output_size=1)
+      (fc): Linear(in_features=64, out_features=256, bias=True)
+    )
+    (linear): Linear(in_features=64, out_features=256, bias=True)
+    (norm1): LayerNorm((256,), eps=1e-05, elementwise_affine=True)
+  )
+  (enc_out): Linear(in_features=256, out_features=256, bias=True)
+  (lookup_table): Embedding(1544, 256, padding_idx=0)
+  (rnn): LayerNormLSTM(
+    (hidden0): ModuleList(
+      (0): LayerNormLSTMCell(
+        512, 256
+        (ln_ih): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+        (ln_hh): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+        (ln_ho): LayerNorm((256,), eps=1e-05, elementwise_affine=True)
+      )
+    )
+  )
+  (out): Linear(in_features=256, out_features=1544, bias=True)
+)
+image ['./134_IM-0219-1001.png']
+predicted: [['<start>', 'the', 'heart', 'is', 'normal', 'in', 'size', 'and', 'contour']]
+ground truth: [['<start>', 'calcified', 'granulomata', 'are', 'present', 'in', 'the', 'right', 'middle', 'lobe', 'and', 'right', 'upper', 'lobe']]
+Actor(
+  (enc): EncoderCNN(
+    (swin_model): SwinModel(
+      (patch_embedding): PatchEmbedding(
+        (proj): Conv2d(1, 64, kernel_size=(2, 2), stride=(2, 2))
+      )
+      (swin_transformer1): SwinTransformer(
+        (norm1): LayerNormalization((64,), eps=1e-05, elementwise_affine=True)
+        (attn): WindowAttention(
+          (qkv): Linear(in_features=64, out_features=192, bias=True)
+          (dropout): Dropout(p=0.0, inplace=False)
+          (proj): Linear(in_features=64, out_features=64, bias=True)
+        )
+        (drop_path): Dropout(p=0.0, inplace=False)
+        (norm2): LayerNormalization((64,), eps=1e-05, elementwise_affine=True)
+        (mlp): Sequential(
+          (0): Linear(in_features=64, out_features=128, bias=True)
+          (1): GELU(approximate='none')
+          (2): Dropout(p=0.0, inplace=False)
+          (3): Linear(in_features=128, out_features=64, bias=True)
+          (4): Dropout(p=0.0, inplace=False)
+        )
+      )
+      (swin_transformer2): SwinTransformer(
+        (norm1): LayerNormalization((64,), eps=1e-05, elementwise_affine=True)
+        (attn): WindowAttention(
+          (qkv): Linear(in_features=64, out_features=192, bias=True)
+          (dropout): Dropout(p=0.0, inplace=False)
+          (proj): Linear(in_features=64, out_features=64, bias=True)
+        )
+        (drop_path): Dropout(p=0.0, inplace=False)
+        (norm2): LayerNormalization((64,), eps=1e-05, elementwise_affine=True)
+        (mlp): Sequential(
+          (0): Linear(in_features=64, out_features=128, bias=True)
+          (1): GELU(approximate='none')
+          (2): Dropout(p=0.0, inplace=False)
+          (3): Linear(in_features=128, out_features=64, bias=True)
+          (4): Dropout(p=0.0, inplace=False)
+        )
+      )
+      (patch_merging): PatchMerging(
+        (linear_trans): Linear(in_features=256, out_features=128, bias=False)
+      )
+      (global_avg_pooling): AdaptiveAvgPool1d(output_size=1)
+      (fc): Linear(in_features=64, out_features=256, bias=True)
+    )
+    (linear): Linear(in_features=64, out_features=256, bias=True)
+    (norm1): LayerNorm((256,), eps=1e-05, elementwise_affine=True)
+  )
+  (enc_out): Linear(in_features=256, out_features=256, bias=True)
+  (lookup_table): Embedding(1544, 256, padding_idx=0)
+  (rnn): LayerNormLSTM(
+    (hidden0): ModuleList(
+      (0): LayerNormLSTMCell(
+        512, 256
+        (ln_ih): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+        (ln_hh): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+        (ln_ho): LayerNorm((256,), eps=1e-05, elementwise_affine=True)
+      )
+    )
+  )
+  (out): Linear(in_features=256, out_features=1544, bias=True)
+)
+image ['./118_IM-0123-2001.png']
+predicted: [['<start>', 'the', 'heart', 'is', 'normal', 'in', 'size', 'and', 'contour']]
+ground truth: [['<start>', 'the', 'heart', 'is', 'normal', 'in', 'size', 'and', 'contour']]

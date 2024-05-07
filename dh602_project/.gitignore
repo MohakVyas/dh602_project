@@ -1,0 +1,15 @@
+images/
+aug_images/
+augmen_images/
+resultsA2C(test)/
+resultsA2C (70 epochs)/
+results_cnn/
+results_swin/
+resultsA2C/
+models_cnn/
+models_swin/
+*.pth
+*.out
+*/resultsA2C/
+
+

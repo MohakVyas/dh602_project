@@ -1,0 +1,6 @@
+nohup python train.py --actor_pretrained ./layer_norm_swin/actor_pretrained.pth --critic_pretrained ./layer_norm_swin/critic_pretrained.pth  --actor_path ./layer_norm_swin/actor.pth --critic_path ./layer_norm_swin/critic.pth --enc_dec_path ./layer_norm_swin/enc_dec.pth --actor_epochs 3 
+--epochs 5 --training_results ./layer_norm_swin/training_results.txt --pretrain_actor_logs ./layer_norm_swin/pretrain_actor_logs.txt --pretrain_critic_logs ./layer_norm_swin/pretra
+in_critic_logs.txt --pretrain_enc_dec_logs ./layer_norm_swin/pretrain_enc_dec_logs.txt --results_path ./layer_norm_swin/resultsA2C --train_logs ./layer_norm_swin/actor_critic_train
+_logs.txt --train_reward_logs ./layer_norm_swin/actor_critic_reward_logs.txt --final_results_path ./layer_norm_swin --load_pretrained True > layer_norm.out 2>&1 &
+
+pid_17_04_24 - [1] 150019

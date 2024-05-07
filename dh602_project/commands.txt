@@ -1,0 +1,15 @@
+nohup python train.py --actor_pretrained ./layer_norm_swin/actor_pretrained.pth --critic_pretrained ./layer_norm_swin/critic_pretrained.pth  --actor_path ./layer_norm_swin/actor.pth --critic_path ./layer_norm_swin/critic.pth --enc_dec_path ./layer_norm_swin/enc_dec.pth --actor_epochs 3 
+--epochs 5 --training_results ./layer_norm_swin/training_results.txt --pretrain_actor_logs ./layer_norm_swin/pretrain_actor_logs.txt --pretrain_critic_logs ./layer_norm_swin/pretra
+in_critic_logs.txt --pretrain_enc_dec_logs ./layer_norm_swin/pretrain_enc_dec_logs.txt --results_path ./layer_norm_swin/resultsA2C --train_logs ./layer_norm_swin/actor_critic_train
+_logs.txt --train_reward_logs ./layer_norm_swin/actor_critic_reward_logs.txt --final_results_path ./layer_norm_swin --load_pretrained True > layer_norm.out 2>&1 &
+
+
+nohup python train_modified.py --actor_pretrained ./transformer_aug/actor_pretrained.pth --critic_pretrained ./transformer_aug/critic_pretrained.pth  --actor_path ./transformer_aug/actor.pth --critic_path ./transformer_aug/critic.pth --enc_dec_path ./transformer_aug/enc_dec.pth --actor_epochs 3 --epochs 5 --training_results ./transformer_aug/training_results.txt --pretrain_actor_logs ./transformer_aug/pretrain_actor_logs.txt --pretrain_critic_logs ./transformer_aug/pretrain_critic_logs.txt --pretrain_enc_dec_logs ./transformer_aug/pretrain_enc_dec_logs.txt --results_path ./transformer_aug/resultsA2C --train_logs ./transformer_aug/actor_critic_train_logs.txt --train_reward_logs ./transformer_aug/actor_critic_reward_logs.txt --final_results_path ./transformer_aug  > transformer_aug.out 2>&1 & 
+
+[2] 1193548
+
+nohup python train_original.py --actor_pretrained ./layer_norm_aug/actor_pretrained.pth --critic_pretrained ./layer_norm_aug/critic_pretrained.pth  --actor_path ./layer_norm_aug/actor.pth --critic_path ./layer_norm_aug/critic.pth --enc_dec_path ./layer_norm_aug/enc_dec.pth --actor_epochs 3 --epochs 5 --training_results ./layer_norm_aug/training_results.txt --pretrain_actor_logs ./layer_norm_aug/pretrain_actor_logs.txt --pretrain_critic_logs ./layer_norm_aug/pretrain_critic_logs.txt --pretrain_enc_dec_logs ./layer_norm_aug/pretrain_enc_dec_logs.txt --results_path ./layer_norm_aug/resultsA2C --train_logs ./layer_norm_aug/actor_critic_train_logs.txt --train_reward_logs ./layer_norm_aug/actor_critic_reward_logs.txt --final_results_path ./layer_norm_aug  > layer_norm_aug.out 2>&1 &
+
+[1] 1193149
+
+(10-pretraining epochs; 50 epochs training)
