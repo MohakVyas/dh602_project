@@ -1,4 +1,4 @@
-# Actor critic architecture for XRay image captioning
+# Actor critic architecture for X-Ray image captioning
 
 ## Steps:
 ### Building the vocabulary
