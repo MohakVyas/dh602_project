@@ -13,4 +13,6 @@ python train_original.py
 ```{bash}
 python train_modified.py
 ```
+Example usage commands can be found in commands.txt file
+
 
